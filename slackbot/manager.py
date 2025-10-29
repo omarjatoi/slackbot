@@ -35,12 +35,7 @@ class PluginsManager(object):
         path_name = None
 
         if PY2:
-            import imp
-
-            for mod in plugin.split('.'):
-                if path_name is not None:
-                    path_name = [path_name]
-                _, path_name, _ = imp.find_module(mod, path_name)
+            raise Exception("Python 2 not supported")
         else:
             from importlib.util import find_spec as importlib_find
 
